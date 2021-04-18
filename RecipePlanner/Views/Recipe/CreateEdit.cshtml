@@ -1,5 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
+<div class="row mt-2">
+    @if (Model.Id == Guid.Empty)
+    {
+        <h1>Create Recipe</h1>
+    }
+    else
+    {
+        <h1>Update Recipe</h1>
+    }
+</div>
+
+<form class="mt-2 needs-validation" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="form-group">
+        <label for="recipeName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="recipeName" name="Name" placeholder="Enter recipe name" required value="@Model.Name" />
+    </div>
+    <div class="form-group">
+        <label for="recipeInstruction" class="form-label">Name</label>
+        <textarea class="form-control" id="recipeInstruction" name="Instruction" rows="3">@Model.Instruction</textarea>
+    </div>
+    @if (Model.Id == Guid.Empty)
+    {
+        <button type="submit" class="btn btn-success">Create</button>
+    }
+    else
+    {
+        <button type="submit" class="btn btn-secondary">Update</button>
+    }
+</form>

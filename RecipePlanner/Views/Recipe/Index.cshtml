@@ -10,7 +10,7 @@
         <h1>@header</h1>
     </div>
     <div class="col-auto">
-        <a href="#" class="btn btn-success">Add Recipe</a>
+        <a asp-action="Create" class="btn btn-success">Add Recipe</a>
     </div>
 </div>
 @if (recipesExist)
@@ -25,8 +25,8 @@
                     </div>
                     <div class="col-auto">
                         <div class="btn-group" role="group">
-                            <a href="#" class="btn btn-secondary">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a asp-action="Update" asp-route-id="@recipe.Id" class="btn btn-secondary">Update</a>
+                            <a asp-action="Delete" asp-route-id="@recipe.Id" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
