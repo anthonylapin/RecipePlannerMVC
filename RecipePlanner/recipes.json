@@ -1,0 +1,73 @@
+[
+  {
+    "Id": "19c6f706-7a1e-40d1-8be3-9729e9879a4f",
+    "Name": "pizza",
+    "Instruction": "Preheat oven to 450 degrees F (230 degrees C).In a medium bowl, dissolve yeast and sugar in warm water. Let stand until creamy, about 10 minutes. Stir in flour, salt and oil. Beat until smooth. Let rest for 5 minutes. Turn dough out onto a lightly floured surface and pat or roll into a round. Transfer crust to a lightly greased pizza pan or baker\u0027s peel dusted with cornmeal. Spread with desired toppings and bake in preheated oven for 15 to 20 minutes, or until golden brown. Let baked pizza cool for 5 minutes before serving.",
+    "Ingredients": [
+      {
+        "Name": "egg",
+        "MeasurementValue": "pcs",
+        "Quantity": 1
+      },
+      {
+        "Name": "flour",
+        "MeasurementValue": "cups",
+        "Quantity": 2.5
+      },
+      {
+        "Name": "salt",
+        "MeasurementValue": "teaspoon",
+        "Quantity": 1
+      },
+      {
+        "Name": "olive oil",
+        "MeasurementValue": "tablespoons",
+        "Quantity": 2
+      },
+      {
+        "Name": "active dry yeast",
+        "MeasurementValue": "ounce",
+        "Quantity": 0.25
+      }
+    ]
+  },
+  {
+    "Id": "6102369e-7e56-4ef8-abce-94ec52380aa2",
+    "Name": "sandwitch",
+    "Instruction": "Put ham and cheese on a bread.\t",
+    "Ingredients": [
+      {
+        "Name": "bread",
+        "MeasurementValue": "slice",
+        "Quantity": 1
+      },
+      {
+        "Name": "ham",
+        "MeasurementValue": "slice",
+        "Quantity": 1
+      },
+      {
+        "Name": "cheese",
+        "MeasurementValue": "slice",
+        "Quantity": 1
+      }
+    ]
+  },
+  {
+    "Id": "982bcb64-5c3d-4a85-aba3-5ffec0cb94c6",
+    "Name": "Buterbrod",
+    "Instruction": "Kolbasa \u002B Cheese = Love",
+    "Ingredients": [
+      {
+        "Name": "Ham",
+        "MeasurementValue": "sht",
+        "Quantity": 1
+      },
+      {
+        "Name": "Cheese",
+        "MeasurementValue": "sht",
+        "Quantity": 1
+      }
+    ]
+  }
+]

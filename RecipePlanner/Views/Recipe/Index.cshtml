@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    bool recipesExist = Model.Count > 0;
+    var header = recipesExist ? "Recipes List" : "No Recipes were created yet";
+}
+
+
+<div class="row mt-2">
+    <div class="col">
+        <h1>@header</h1>
+    </div>
+    <div class="col-auto">
+        <a href="#" class="btn btn-success">Add Recipe</a>
+    </div>
+</div>
+@if (recipesExist)
+{
+    <ul class="lisdt-group mt-2">
+        @foreach (var recipe in Model)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <a href="#">@recipe.Name</a>
+                    </div>
+                    <div class="col-auto">
+                        <div class="btn-group" role="group">
+                            <a href="#" class="btn btn-secondary">Update</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}
