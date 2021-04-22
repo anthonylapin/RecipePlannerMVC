@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = $"Recipe - {Model.Recipe.Name}";
+    var isIngredientUpdate = Model.Ingredient != null;
+    var formAction = isIngredientUpdate ? "Update" : "Create";
+}
+
+<div class="row mt-2">
+    <h1>@Model.Recipe.Name</h1>
+</div>
+<div class="row mt-2 form-group">
+    <label for="recipeInstruction">Recipe Instruction</label>
+    <textarea id="recipeInstruction" class="form-control" rows="5" disabled>@Model.Recipe.Instruction</textarea>
+</div>
+<div class="row mt-2 mb-2">
+    Ingredients
+</div>
+<ul class="list-group">
+    @foreach (var ingredient in Model.Recipe.Ingredients)
+    {
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    @ingredient.Name @ingredient.Quantity @ingredient.MeasurementValue
+                </div>
+                <div class="col-auto">
+                    <div class="btn-group" role="group">
+                        <a asp-action="Personal"
+                           asp-route-id="@Model.Recipe.Id"
+                           asp-route-ingredientName="@ingredient.Name"
+                           asp-route-ingredientMeasurementValue="@ingredient.MeasurementValue"
+                           class="btn btn-secondary">
+                            Update
+                        </a>
+                        <a asp-controller="Ingredient"
+                           asp-action="Delete"
+                           asp-route-recipeId="@Model.Recipe.Id"
+                           asp-route-name="@ingredient.Name"
+                           asp-route-measurementValue="@ingredient.MeasurementValue"
+                           class="btn btn-danger">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+<form method="post" asp-controller="Ingredient" asp-action="@formAction">
+    <input type="hidden" name="recipeId" value="@Model.Recipe.Id" />
+    <div class="form-row mt-5">
+        <div class="col">
+            @if (isIngredientUpdate)
+            {
+                <input type="hidden" value="@Model.Ingredient.Name" name="name" />
+                <input type="text" disabled required autocomplete="off" class="form-control" placeholder="Ingredient Name" value="@Model.Ingredient.Name">
+            }
+            else
+            {
+                <input type="text" required autocomplete="off" class="form-control" name="name" placeholder="Ingredient Name">
+            }
+        </div>
+        <div class="col">
+            @if (isIngredientUpdate)
+            {
+                <input type="number" required autocomplete="off" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity" value="@Model.Ingredient.Quantity">
+            }
+            else
+            {
+                <input type="number" required autocomplete="off" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity">
+            }
+        </div>
+        <div class="col">
+            @if (isIngredientUpdate)
+            {
+                <input type="hidden" value="@Model.Ingredient.MeasurementValue" name="measurementValue" />
+                <input type="text" disabled required autocomplete="off" class="form-control" placeholder="Ingredient Measurement Value" value="@Model.Ingredient.MeasurementValue">
+            }
+            else
+            {
+                <input type="text" required autocomplete="off" class="form-control" name="measurementValue" placeholder="Ingredient Measurement Value">
+            }
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">@formAction Ingredient</button>
+        @if (isIngredientUpdate)
+        {
+            <div class="col">
+                <a class="btn btn-info" asp-action="Personal" asp-route-id="@Model.Recipe.Id">Cancel</a>
+            </div>
+        }
+    </div>
+</form>

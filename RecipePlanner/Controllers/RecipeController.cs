@@ -12,7 +12,7 @@ namespace RecipePlanner.Controllers
 {
     public class RecipeController : Controller
     {
-        private IRecipeContext _context;
+        private readonly IRecipeContext _context;
 
         public RecipeController(IRecipeContext context)
         {
@@ -22,6 +22,27 @@ namespace RecipePlanner.Controllers
         public IActionResult Index()
         {
             return View(_context.Recipes);
+        }
+
+        public IActionResult Personal(Guid id, string ingredientName, string ingredientMeasurementValue)
+        {
+            var viewModel = new PersonalViewModel();
+            var recipe = _context.Recipes.Find(r => r.Id == id);
+
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            viewModel.Recipe = recipe;
+
+            if (ingredientName != null && ingredientMeasurementValue != null)
+            {
+                viewModel.Ingredient = recipe.Ingredients.FirstOrDefault(i =>
+                    i.Name == ingredientName && i.MeasurementValue == ingredientMeasurementValue);
+            }
+            
+            return View(viewModel);
         }
 
         public IActionResult Create()

@@ -17,7 +17,7 @@
       {
         "Name": "salt",
         "MeasurementValue": "teaspoon",
-        "Quantity": 1
+        "Quantity": 1.0
       },
       {
         "Name": "olive oil",
