@@ -26,6 +26,17 @@ namespace RecipePlanner
         {
             services.AddOptions();
 
+            services.AddHttpContextAccessor();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddScoped<IRecipeContext, RecipeContext>();
 
             services.AddControllersWithViews();
@@ -50,6 +61,8 @@ namespace RecipePlanner
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
