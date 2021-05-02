@@ -1,5 +1,3 @@
-using System;
-
 namespace RecipePlanner.Models
 {
     public class ErrorViewModel
