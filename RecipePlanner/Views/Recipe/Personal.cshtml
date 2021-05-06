@@ -62,11 +62,11 @@
         <div class="col">
             @if (isIngredientUpdate)
             {
-                <input type="number" required autocomplete="off" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity" value="@Model.Ingredient.Quantity">
+                <input type="number" required autocomplete="off" min="0.001" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity" value="@Model.Ingredient.Quantity">
             }
             else
             {
-                <input type="number" required autocomplete="off" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity">
+                <input type="number" required autocomplete="off" min="0.001" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity">
             }
         </div>
         <div class="col">

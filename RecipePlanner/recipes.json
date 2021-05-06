@@ -69,5 +69,17 @@
         "Quantity": 1
       }
     ]
+  },
+  {
+    "Id": "15b202c2-f907-4616-903d-85925dca95fe",
+    "Name": "lepsus",
+    "Instruction": "yoyoyoy",
+    "Ingredients": [
+      {
+        "Name": "b0m",
+        "MeasurementValue": "a",
+        "Quantity": 10
+      }
+    ]
   }
 ]
