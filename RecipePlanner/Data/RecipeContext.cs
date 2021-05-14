@@ -13,8 +13,15 @@ namespace RecipePlanner.Data
 
         private async Task ReadData()
         {
-            using var fs = new FileStream(_path, FileMode.OpenOrCreate);
-            Recipes = await JsonSerializer.DeserializeAsync<List<Recipe>>(fs);
+            try
+            {
+                using var fs = new FileStream(_path, FileMode.OpenOrCreate);
+                Recipes = await JsonSerializer.DeserializeAsync<List<Recipe>>(fs);
+            }
+            catch (JsonException)
+            {
+            }
+            
         }
 
         public RecipeContext(IConfiguration configuration)
